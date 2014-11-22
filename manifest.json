@@ -7,5 +7,6 @@
   "browser_action": {
     "default_icon": "icon.png"
   },
-  "background_page": "background.html"
+  "background_page": "background.html",
+  "js": ["spook.js"]
 }
