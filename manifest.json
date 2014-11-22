@@ -8,5 +8,5 @@
     "default_icon": "icon.png"
   },
   "background_page": "background.html",
-  "js": ["spook.js"]
+  "js": ["assets/js/spook.js"]
 }
