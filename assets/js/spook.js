@@ -1,6 +1,8 @@
 window.isFading = false
+
 document.body.innerHTML +=
-  '<audio id="sp00k" src="chrome-extension://glkeokaffdibjpogckggalnphlfphlep/assets/sound/spooky.mp3" preload="auto"></audio>'
+  '<audio id="sp00k" src="' + chrome.extension.getURL('assets/sound/spooky.mp3') + '" preload="auto"></audio>'
+
 document.body.innerHTML += '<style> \
   @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } } \
 </style>\
@@ -38,8 +40,8 @@ document.body.addEventListener("click", function(event) {
 
   if (rand == 1) {
     document.getElementById('sp00k').play()
-    mouseX = event.pageX;
-    mouseY = event.pageY;
+    mouseX = event.pageX
+    mouseY = event.pageY
     offsetX = window.sp00kdiv.clientWidth / 2
     offsetY = window.sp00kdiv.clientHeight / 2
     window.sp00kdiv.style.top = (mouseY - offsetY) + "px"
