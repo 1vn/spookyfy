@@ -12,5 +12,8 @@
       "matches": ["<all_urls>"],
       "js": ["assets/js/spook.js"]
     }
+  ],
+  "web_accessible_resources": [
+    "assets/sound/spooky.mp3"
   ]
 }
