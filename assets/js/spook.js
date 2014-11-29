@@ -36,11 +36,9 @@ var thingy = setInterval(function() {
 }, 1)
 
 var count = 0
-console.log(count)
 document.body.addEventListener("click", function(event) {
   count++
-  var rand = Math.floor(Math.random() * (29 - count))
-  console.log('ODDS: ' + (((count)/29)*100) + '%')
+  var rand = Math.floor(Math.random() * (50 - count))
   if (rand == 1) {
     count = 0
     sp00k.play()
