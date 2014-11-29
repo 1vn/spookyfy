@@ -2,7 +2,8 @@ var isFading = false
 
 var animation = document.createElement("style")
 animation.type = 'text/css';
-var spin = document.createTextNode('@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }');
+var spin = document.createTextNode(
+  '@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }');
 animation.appendChild(spin);
 
 document.getElementsByTagName('head')[0].appendChild(animation)
@@ -27,7 +28,7 @@ document.body.appendChild(sp00k)
 document.body.appendChild(sp00kdiv)
 
 var thingy = setInterval(function() {
-  if(sp00kdiv.style.opacity > 0 && isFading) {
+  if (sp00kdiv.style.opacity > 0 && isFading) {
     sp00kdiv.style.opacity -= 0.009
   } else {
     sp00kdiv.style.opacity = 0
@@ -39,7 +40,7 @@ var count = 0
 document.body.addEventListener("click", function(event) {
   count++
   var rand = Math.floor(Math.random() * (50 - count))
-  if (rand == 1) {
+  if (rand == 0) {
     count = 0
     sp00k.play()
     mouseX = event.pageX
