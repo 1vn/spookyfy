@@ -1,12 +1,10 @@
 var isFading = false
 
 var animation = document.createElement("style")
-animation.type = 'text/css';
+animation.type = 'text/css'
 var spin = document.createTextNode(
-  '@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }');
-animation.appendChild(spin);
-
-document.getElementsByTagName('head')[0].appendChild(animation)
+  '@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }')
+animation.appendChild(spin)
 
 var sp00kdiv = document.createElement("div")
 sp00kdiv.innerHTML = "spooky!"
@@ -16,14 +14,12 @@ sp00kdiv.style.fontSize = "32px"
 sp00kdiv.style.fontWeight = "bold"
 sp00kdiv.style.top = "0px"
 sp00kdiv.style.left = "0px"
-sp00kdiv.style.zIndex = "10000"
+sp00kdiv.style.zIndex = 10000
 sp00kdiv.style.opacity = 0
 sp00kdiv.style.pointerEvents = "none"
 sp00kdiv.style.webkitAnimation = "spin 500ms linear infinite"
 
-var sp00k = document.createElement("audio")
-sp00k.src = chrome.extension.getURL('assets/sound/spooky.mp3')
-
+document.getElementsByTagName('head')[0].appendChild(animation)
 document.body.appendChild(sp00k)
 document.body.appendChild(sp00kdiv)
 
@@ -42,6 +38,8 @@ document.body.addEventListener("click", function(event) {
   var rand = Math.floor(Math.random() * (50 - count))
   if (rand == 0) {
     count = 0
+    var sp00k = document.createElement("audio")
+    sp00k.src = chrome.extension.getURL('assets/sound/spooky.mp3')
     sp00k.play()
     mouseX = event.pageX
     mouseY = event.pageY
