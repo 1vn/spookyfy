@@ -35,8 +35,8 @@ var thingy = setInterval(function() {
 var count = 0
 document.body.addEventListener("click", function(event) {
   count++
-  var rand = Math.floor(Math.random() * (50 - count))
-  if (rand == 0) {
+  var rand = parseInt((Math.random() * (50 - count)))
+  if (rand <= 0) {
     count = 0
     var sp00k = document.createElement("audio")
     sp00k.src = chrome.extension.getURL('assets/sound/spooky.mp3')
