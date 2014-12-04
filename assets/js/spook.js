@@ -39,7 +39,8 @@ var count = 0
 var lastSpook = 0
 document.body.addEventListener("click", function(event) {
   var currentTime = new Date().getTime()
-  if (currentTime - lastSpook > 600000) {
+  if (currentTime - lastSpook > 300000) {
+    count++
     var rand = Math.floor(Math.random() * (75 - count))
     if (rand == 0) {
       lastSpook = currentTime
