@@ -19,6 +19,9 @@ sp00kdiv.style.opacity = 0
 sp00kdiv.style.pointerEvents = "none"
 sp00kdiv.style.webkitAnimation = "spin 500ms linear infinite"
 
+var sp00k = document.createElement("audio")
+sp00k.src = chrome.extension.getURL('assets/sound/spooky.mp3')
+
 document.getElementsByTagName('head')[0].appendChild(animation)
 document.body.appendChild(sp00k)
 document.body.appendChild(sp00kdiv)
@@ -33,22 +36,23 @@ var thingy = setInterval(function() {
 }, 1)
 
 var count = 0
+var lastSpook = 0
 document.body.addEventListener("click", function(event) {
-  count++
-  var rand = Math.floor(Math.random() * (50 - count))
-  if (rand == 0) {
-    count = 0
-    var sp00k = document.createElement("audio")
-    sp00k.src = chrome.extension.getURL('assets/sound/spooky.mp3')
-    sp00k.play()
-    mouseX = event.pageX
-    mouseY = event.pageY
-    offsetX = sp00kdiv.clientWidth / 2
-    offsetY = sp00kdiv.clientHeight / 2
-    sp00kdiv.style.top = (mouseY - offsetY) + "px"
-    sp00kdiv.style.left = (mouseX - offsetX) + "px"
-    sp00kdiv.style.opacity = 1
-    isFading = true
+  var currentTime = new Date().getTime()
+  if (currentTime - lastSpook > 600000) {
+    var rand = Math.floor(Math.random() * (50 - count))
+    if (rand == 0) {
+      lastSpook = currentTime
+      count = 0
+      sp00k.play()
+      mouseX = event.pageX
+      mouseY = event.pageY
+      offsetX = sp00kdiv.clientWidth / 2
+      offsetY = sp00kdiv.clientHeight / 2
+      sp00kdiv.style.top = (mouseY - offsetY) + "px"
+      sp00kdiv.style.left = (mouseX - offsetX) + "px"
+      sp00kdiv.style.opacity = 1
+      isFading = true
+    }
   }
-
 })
