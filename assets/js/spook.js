@@ -28,7 +28,7 @@ document.body.appendChild(sp00kdiv)
 
 var thingy = setInterval(function() {
   if (sp00kdiv.style.opacity > 0 && isFading) {
-    sp00kdiv.style.opacity -= 0.009
+    sp00kdiv.style.opacity -= 0.008
   } else {
     sp00kdiv.style.opacity = 0
     isFading = false
