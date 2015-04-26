@@ -1,5 +1,5 @@
 var isFading = false
-
+var totalSpooks = 0
 var animation = document.createElement("style")
 animation.type = 'text/css'
 var spin = document.createTextNode(
@@ -45,6 +45,7 @@ document.body.addEventListener("click", function(event) {
     if (rand == 0) {
       lastSpook = currentTime
       count = 0
+      totalSpooks++
       sp00k.play()
       mouseX = event.pageX
       mouseY = event.pageY
@@ -54,6 +55,7 @@ document.body.addEventListener("click", function(event) {
       sp00kdiv.style.left = (mouseX - offsetX) + "px"
       sp00kdiv.style.opacity = 1
       isFading = true
+      chrome.browserAction.setBadgeText({text: totalSpooks})
     }
   }
 })
