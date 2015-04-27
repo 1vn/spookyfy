@@ -14,7 +14,18 @@
       "js": ["assets/js/spook.js"]
     }
   ],
+  "background":
+  {
+      "scripts":["assets/js/background.js"]
+  },
+  "browser_action": {
+          "default_icon": "icon16.png"  // optional
+          // equivalent to "default_icon": { "38": "images/icon38.png" }
+        },
   "web_accessible_resources": [
     "assets/sound/spooky.mp3"
-  ]
+  ],
+  "permissions": [
+          "storage"
+        ]
 }

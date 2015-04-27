@@ -1,11 +1,10 @@
 var isFading = false
-var totalSpooks = 0
 var animation = document.createElement("style")
 animation.type = 'text/css'
 var spin = document.createTextNode(
   '@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }')
 animation.appendChild(spin)
-
+var totalSpooks = 0
 var sp00kdiv = document.createElement("div")
 sp00kdiv.innerHTML = "spooky!"
 sp00kdiv.style.position = "absolute"
@@ -55,7 +54,15 @@ document.body.addEventListener("click", function(event) {
       sp00kdiv.style.left = (mouseX - offsetX) + "px"
       sp00kdiv.style.opacity = 1
       isFading = true
-      chrome.browserAction.setBadgeText({text: totalSpooks})
     }
   }
 })
+
+
+function syncCounter(){
+  if(totalSpooks > 0){
+    chrome.storage.sync.set({'totalSpooks':totalSpooks}, function(){
+      message("totalSpooks saved")
+    })
+  }
+}
