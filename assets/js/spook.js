@@ -54,7 +54,6 @@ document.body.addEventListener("click", function(event) {
       sp00kdiv.style.left = (mouseX - offsetX) + "px"
       sp00kdiv.style.opacity = 1
       isFading = true
-      chrome.browserAction.setBadgeText({'text': 0})
     }
   }
 })
