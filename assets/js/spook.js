@@ -17,7 +17,7 @@ sp00kdiv.style.zIndex = 5
 sp00kdiv.style.opacity = 0
 sp00kdiv.style.pointerEvents = "none"
 sp00kdiv.style.webkitAnimation = "spin 500ms linear infinite"
-
+totalSpooks = 0
 var sp00k = document.createElement("audio")
 sp00k.src = chrome.extension.getURL('assets/sound/spooky.mp3')
 
