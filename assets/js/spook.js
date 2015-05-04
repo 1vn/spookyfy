@@ -67,7 +67,3 @@ function syncCounter(){
     })
   }
 }
-
-function sentReqToBg(){
-
-}
