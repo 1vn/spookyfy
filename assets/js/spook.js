@@ -17,7 +17,6 @@ sp00kdiv.style.zIndex = 5
 sp00kdiv.style.opacity = 0
 sp00kdiv.style.pointerEvents = "none"
 sp00kdiv.style.webkitAnimation = "spin 500ms linear infinite"
-totalSpooks = 0
 var sp00k = document.createElement("audio")
 sp00k.src = chrome.extension.getURL('assets/sound/spooky.mp3')
 
@@ -38,13 +37,14 @@ var count = 0
 var lastSpook = 0
 document.body.addEventListener("click", function(event) {
   var currentTime = new Date().getTime()
-  if (currentTime - lastSpook > 300000) {
+  //if (currentTime - lastSpook > 300000) {
+  if(true){
     count++
     var rand = Math.floor(Math.random() * (75 - count))
-    if (rand == 0) {
+    //if (rand == 0) {
+    if(true){
       lastSpook = currentTime
       count = 0
-      totalSpooks++
       sp00k.play()
       mouseX = event.pageX
       mouseY = event.pageY
@@ -54,7 +54,9 @@ document.body.addEventListener("click", function(event) {
       sp00kdiv.style.left = (mouseX - offsetX) + "px"
       sp00kdiv.style.opacity = 1
       isFading = true
-      chrome.extension.sendRequest({'totalSpooks': totalSpooks.toString()});
+      chrome.extension.sendRequest({counter: "spooked"}, function(response){
+        message("successful spook counted")
+      })
     }
   }
 })
