@@ -25,7 +25,5 @@
   "web_accessible_resources": [
     "assets/sound/spooky.mp3"
   ],
-  "permissions": [
-          "storage"
-        ]
+  "permissions": ["storage"]
 }
