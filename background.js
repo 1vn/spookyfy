@@ -1,6 +1,6 @@
 console.log("Background loaded...")
 var totalSpooks;
-chrome.storage.local.get('totalSpooks', function(item){
+chrome.storage.sync.get('totalSpooks', function(item){
 	console.log(item.totalSpooks)
 	totalSpooks=item.totalSpooks
 	if(!totalSpooks){totalSpooks=0}
@@ -14,7 +14,7 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse){
 })
 
 chrome.windows.onRemoved.addListener(function(windowId){
-	chrome.storage.local.set({'totalSpooks': totalSpooks}, function(){
+	chrome.storage.sync.set({'totalSpooks': totalSpooks}, function(){
 	console.log("Spookysaved")
 	})
 })
