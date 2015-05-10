@@ -53,7 +53,7 @@ document.body.addEventListener("click", function(event) {
       sp00kdiv.style.opacity = 1
       isFading = true
       chrome.extension.sendRequest({counter: "spooked"}, function(response){
-        message("successful spook counted")
+        message(response)
       })
     }
   }
