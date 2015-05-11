@@ -6,9 +6,11 @@ chrome.storage.sync.get('totalSpooks', function(item){
 })
 
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse){
-	totalSpooks++
-	chrome.browserAction.setBadgeBackgroundColor({ color: [255, 255, 255, 255] })
-	chrome.browserAction.setBadgeText({'text': totalSpooks.toString()})
+	if(request.action == "spooked"){
+		totalSpooks++
+		chrome.browserAction.setBadgeBackgroundColor({ color: [255, 255, 255, 255] })
+		chrome.browserAction.setBadgeText({'text': totalSpooks.toString()})
+	}
 })
 
 chrome.windows.onRemoved.addListener(function(windowId){
