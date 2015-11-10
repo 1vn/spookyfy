@@ -33,14 +33,17 @@ var thingy = setInterval(function() {
   }
 }, 1)
 
-var count = 0
+var count;
+chrome.runtime.sendMessage({cmd:"getcount"},function(response){
+  count=response.count;
+});
 var lastSpook = 0
 document.body.addEventListener("click", function(event) {
   var currentTime = new Date().getTime()
   if (currentTime - lastSpook > 300000) {
     count++
-    var rand = Math.floor(Math.random() * (75 - count))
-    if (rand == 0) {
+    var rand = Math.floor(Math.random() * (150 - count))
+    if (rand != 0) {
       lastSpook = currentTime
       count = 0
       sp00k.play()
