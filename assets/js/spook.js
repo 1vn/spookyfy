@@ -43,7 +43,7 @@ document.body.addEventListener("click", function(event) {
   if (currentTime - lastSpook > 300000) {
     count++
     var rand = Math.floor(Math.random() * (150 - count))
-    if (rand != 0) {
+    if (rand == 0) {
       lastSpook = currentTime
       count = 0
       sp00k.play()
