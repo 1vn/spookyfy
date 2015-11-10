@@ -15,13 +15,11 @@
     }
   ],
   "permissions": ["storage"],
-  "background":
-  {
+  "background":{
       "scripts":["background.js"]
   },
   "browser_action": {
-          "default_icon": "icon48.png"  // optional
-          // equivalent to "default_icon": { "38": "images/icon38.png" }
+          "default_icon": "icon48.png"
         },
   "web_accessible_resources": ["assets/sound/spooky.mp3"]
 }
