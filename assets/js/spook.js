@@ -58,6 +58,7 @@ document.body.addEventListener("click", function(event) {
       chrome.extension.sendRequest({action: "spooked"}, function(response){
         message(response)
       })
+      syncCounter();
     }
   }
 })
